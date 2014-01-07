@@ -10,14 +10,19 @@ set -e
 action=${1:-list} 
 
 #required
-[ -n "$RBENV_ROOT" -a -d "$RBENV_ROOT" ] || {echo No $RBENV_ROOT && exit 1}
+[ -n "$RBENV_ROOT" -a -d "$RBENV_ROOT" ] ||{ echo No $RBENV_ROOT && exit 1;}
 rbenv_root=$RBENV_ROOT
 plugins_root=$RBENV_ROOT/plugins && mkdir -p $plugins_root
 
 case "$action" in
   list)
-    ls -l $plugins_root
+    ls -1d $plugins_root/* #TODO
+    rbenv-help pluger
+    ;;
+  install)
+    plugname=$2
     ;;
   *)
+    echo nothing
     ;;
 esac
