@@ -4,9 +4,7 @@ manage rbenv plugins like rbenv mangage rubies.
 
 ## Usage
 
-rbenv pluger list
-rbenv pluger install <ruby-build>
-rbenv pluger remove <ruby-build>
+rbenv help pluger
 
 ## Alternatives:
 

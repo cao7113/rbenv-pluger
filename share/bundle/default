@@ -1,0 +1,5 @@
+ruby-build
+rbenv-vars
+rbenv-update
+rbenv-gem-rehash
+rbenv-default-gems
