@@ -7,6 +7,9 @@
 #        rbenv pluger b|bundle <bundlename>  #e.g. default
 #        rbenv pluger i|install <plugname> #e.g. ruby-build
 #        rbenv pluger rm|remove <plugname> #e.g. ruby-build 
+#        rbenv pluger dir <plugname> #e.g. ruby-build 
+#        rbenv pluger root
+#        rbenv pluger update <plugname> #e.g. ruby-build 
 
 set -e 
 [ -n "$RBENV_DEBUG" ] && set -x
@@ -39,6 +42,9 @@ function installer(){
       ;;
     -d|--dir)
       echo $plugdir
+      ;;
+    --fetch)
+      [ -d $plugdir ] &&{ cd $plugdir && git pull;}|| { echo No $plugdir && exit 1;}
       ;;
     *) 
       [ -d $plugdir ] && echo Warn: already exists $plugdir && return 0
@@ -99,6 +105,9 @@ case "$action" in
     ;;
   root)
     echo $plugins_root
+    ;;
+  fetch|update)
+    installer $1 --fetch
     ;;
   *)
     rbenv-help pluger

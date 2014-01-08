@@ -1,6 +1,6 @@
 #Rbenv-pluger: a rbenv-plugin manager
 
-manage rbenv plugins like rbenv mangage rubies.
+manage rbenv plugins like rbenv manage rubies.
 
 ## Usage
 
