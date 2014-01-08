@@ -17,7 +17,7 @@ set -e
 [ -z "$RBENV_ROOT" ] && RBENV_ROOT=`rbenv root`
 [ -n "$RBENV_ROOT" -a -d "$RBENV_ROOT" ] ||{ echo No $RBENV_ROOT dir. && exit 1;}
 
-[ $# -lt 1 ] && rbenv-help pluger && exit 1
+[ $# -lt 1 ] && exec rbenv-help pluger
 action=$1 && shift
 
 rbenv_root=$RBENV_ROOT
@@ -109,7 +109,10 @@ case "$action" in
   fetch|update)
     installer $1 --fetch
     ;;
+  url)
+    grep --color=always --no-filename http $plugdef_dir/*
+    ;;
   *)
-    rbenv-help pluger
+    exec rbenv-help pluger
     ;;
 esac
