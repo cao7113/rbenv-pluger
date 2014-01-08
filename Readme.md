@@ -1,15 +1,27 @@
 #Rbenv-pluger: a rbenv-plugin manager
 
-manage rbenv plugins like rbenv manage rubies.
+* manage rbenv plugins like rbenv manage rubies.
+* but not a normal plugin, it manage all my ruby life(from install to maintain) 
+
+## Why
+
+* ruby developed fastly, need multiple ruby versions
+* boring with manualy or rvm(heavy)
+* dream a daily tool for: 
+  * consistent installing in home notebook/office pc/vsp server
+  * easily manage my ruby life
+
+  rbenv from 37signals maybe your option. I love it, also some plugins.
 
 ## Install
 
-* Rbenv has installed: install this like normal rbenv-plugin
-* Rbenv has not installed
+* Rbenv has not installed(Recommended)
 
   intall rbenv with this pluger using one shell script in: recipe/rbenv. (Note: tested on ubuntu12.04)
 
   like this https://github.com/fesplugas/rbenv-installer
+
+* Rbenv has installed: install this like normal rbenv-plugin
 
 ## Usage
 
