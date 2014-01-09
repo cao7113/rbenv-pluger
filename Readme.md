@@ -67,6 +67,7 @@ available plugin url:
 other plugins you maybe intrested:
 
 * https://github.com/fesplugas/rbenv-bootstrap
+* https://github.com/fesplugas/rbenv-installer
 
 integreate in other environments(capistrano, chef): 
 
