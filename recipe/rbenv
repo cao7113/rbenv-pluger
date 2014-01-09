@@ -4,6 +4,7 @@ function usage() {
   echo "Usage:[RUBY_VERSION=2.0.0-p353] [PREFIX=/path/to/prefix] [INSTALL_TYPE=user|system] $0 #default is user"
 }
 [ "$1" = "-h" -o "$1" = "--help" ] && usage && exit 1
+[ "$1" = "-v" -o "$1" = "--debug" ] && set -x
 
 install_type=${INSTALL_TYPE:-user}
 rbenv_repo=${RBENV_REPO:-https://github.com/sstephenson/rbenv.git}
@@ -88,9 +89,16 @@ echo ==Installed rbenv into $rbenv_root, try: rbenv --version in new shell!
 
 ## install a ruby version
 ruby_version=$RUBY_VERSION
-if [ -n "$ruby_version" -a -f $plugins_root/ruby-build/share/ruby-build/$ruby_version ];then
-  echo Install ruby version: $ruby_version
-  $bin_rbenv install -kv $ruby_version
+echo ==========version: $ruby_version
+if [ -n "$ruby_version" ];then
+  if [ -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
+    echo Install ruby version: $ruby_version
+    $bin_rbenv install -kv $ruby_version
+  else
+    echo Err: not found file: "$plugins_root/ruby-build/share/ruby-build/$ruby_version"
+  fi
+else
+  echo Err: blank ruby version?
 fi
 
 echo Ok, all things have done now with a new ruby version: $ruby_version! 
