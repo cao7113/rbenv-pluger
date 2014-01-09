@@ -1,0 +1,87 @@
+#!/usr/bin/env bash 
+# Summary: manage ruby booted dependencies
+# 
+# Usage: rbenv boot ls|list         #list all available boots
+#        rbenv boot init            #init a Bootfile in current directory
+#        rbenv boot load <bootname> #load a boot, eg. sqlite3
+#        rbenv boot run|app [-f]   #run Bootfile
+
+set -e 
+BOOT_FILENAME=Bootfile
+BOOT_ROOT=$(readlink -f $(dirname $0)/../boot) #support BOOT_PATH?
+BOOTED_FILE_ROOT=$(pwd)/.booted.d
+[ -d $BOOTED_FILE_ROOT ] || mkdir -p $BOOTED_FILE_ROOT
+
+#current up to parent to file: BOOT_FILENAME
+function find_bootfile(){
+  local path=$(pwd)
+  local raw_path=$path
+  while [ ! -f $path/$BOOT_FILENAME -a -n "$path" ];do
+    path=${path%/*}
+  done 
+  file=$path/$BOOT_FILENAME
+  [ -f $file ]||{ echo No bootfile in $raw_path && return 1;}
+  echo $file
+}
+
+#require dependencies
+function require(){
+  [ $# -lt 1 ] && return 1
+  bootname="$1"
+  bootfile=$BOOT_ROOT/$bootname.bash
+  [ -f $bootfile ]||{ echo No bootfile: $bootfile && return 1;}
+
+  #remember
+  local flag_file=$BOOTED_FILE_ROOT/booted_$bootname
+  [ "$2" = "-f" -o "$2" = "--force" ] && local force=1
+  if [ ! -e $flag_file -o -n "$force" ];then
+    echo ==booting file: $bootfile
+    source $bootfile && touch $flag_file
+  else
+    echo Warn: has booted file: $bootname
+  fi
+}
+
+function load(){
+  [ $# -lt 1 ] && return 1
+  bootname=$1 && shift
+  require $bootname --force "$@"
+}
+
+action=$1 && shift
+case "$action" in
+  dir|root)
+    echo $BOOT_ROOT:
+    ;;
+  ls|list)
+    find $BOOT_ROOT -name "*.bash" #just name?
+    #ls -1 $BOOT_ROOT/*.bash
+    ;;
+  cat)
+    cat `find_bootfile`
+    ;;
+  run|app)
+    [ "$1" = "-f" ] && rm $BOOTED_FILE_ROOT/booted_* #improve
+    source $(find_bootfile)
+    ;;
+  load)
+    load "$@"
+    ;;
+  init)
+    if [ -f "$BOOT_FILENAME" ];then
+      echo Already exists file: $BOOT_FILENAME
+    else
+      cat <<-Boots >$BOOT_FILENAME
+#!/usr/bin/env bash
+#List app-specific dependencies here, e.g.
+require sqlite3
+Boots
+    fi
+    ;;
+  rmbooted)
+    rm $BOOTED_FILE_ROOT/booted_*
+    ;;
+  *)
+    exec rbenv-help boot
+    ;;
+esac

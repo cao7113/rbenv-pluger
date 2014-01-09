@@ -1,16 +1,14 @@
 #hooks for ruby-build or rbenv install to compile rubies 
 osinfo=`uname -a`
-script_dir=$(dirname $BASH_SOURCE)/../../../recipe #echo $BASH_SOURCE $0 #this is sourced
-
+script_dir=$(dirname $BASH_SOURCE)/../../../boot #echo $BASH_SOURCE != $0 #this is sourced
 if echo $osinfo|grep -iq ubuntu; then
-  flag_file=~/.ruby-built-essential
-  if [ ! -f $flag_file ];then
+  if [ ! -f ~/.ruby-built-essential ];then
     before_install "`cat $script_dir/ruby-build-essential`"
-  fi 
+  fi
 else
   if [ -z "$RUBY_BUILD_SKIP_ESSENTIAL" ];then
     echo Not support platform: $osinfo 
-    echo You can add support in $BASH_SOURCE
+    echo You can add support in $BASH_SOURCE hook
     exit 1
   fi
 fi

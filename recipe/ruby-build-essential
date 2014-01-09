@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#Note: Mainly designed for before hook for `rbenv install`, evaled by it!
-
-echo ====running before hook in $BASH_SOURCE
-sudo apt-get install -y build-essential autoconf libssl-dev libyaml-dev
-sudo apt-get install -y libreadline6 libreadline6-dev zlib1g zlib1g-dev
-touch ~/.ruby-built-essential

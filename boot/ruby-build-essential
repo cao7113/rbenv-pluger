@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Note: Mainly designed for before hook for `rbenv install`, evaled by it!
+
+echo ====running before hook in $BASH_SOURCE
+sudo apt-get install -y curl git subversion #fetch
+sudo apt-get install -y build-essential autoconf libc6-dev automake libtool bison pkg-config #compiling
+sudo apt-get install -y zlib1g zlib1g-dev #unpack rubygems
+sudo apt-get install -y openssl libssl-dev #ruby's SSL
+sudo apt-get install -y libyaml-dev #ruby's YAML
+sudo apt-get install -y libreadline6 libreadline6-dev libncurses5-dev #irb
+sudo apt-get install -y libxml2-dev libxslt-dev #parse XML via nokogiri 
+touch ~/.ruby-built-essential
