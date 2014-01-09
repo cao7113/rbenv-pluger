@@ -1,4 +1,4 @@
-#Rbenv-pluger: a rbenv-plugin manager
+#Rbenv-pluger: a rbenv-plugin manager and booter
 
 * manage rbenv plugins like rbenv manage rubies.
 * but not a normal plugin, it manage all my ruby life(from install to maintain) 
