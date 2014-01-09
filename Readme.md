@@ -25,8 +25,8 @@
 
 ## Usage
 
-  `rbenv help pluger`
-  `rbenv help boot` #oh, maybe just work on ubuntu12.04+
+* `rbenv help pluger`
+* `rbenv help boot` #oh, maybe just work on ubuntu12.04+
 
 ## Note
 
