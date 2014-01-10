@@ -14,6 +14,10 @@ function usage() {
   run like: 
 
     RUBY_BUILD_CACHE_PATH=~/down RUBY_VERSION=2.0.0-p353 recipe/rbenv --debug
+    
+    or by url style:
+
+    curl -L https://raw2.github.com/cao7113/rbenv-pluger/master/recipe/rbenv|RUBY_VERSION=2.1.0 RUBY_BUILD_CACHE_PATH=~/down bash
 
 Doc
 }
