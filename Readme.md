@@ -19,7 +19,7 @@
 
   intall rbenv with this pluger using one shell script in: recipe/rbenv. (Note: tested on ubuntu12.04)
 
-  like this https://github.com/fesplugas/rbenv-installer
+  $ `curl -L https://raw2.github.com/cao7113/rbenv-pluger/master/recipe/rbenv|RUBY_VERSION=2.1.0 RUBY_BUILD_CACHE_PATH=~/down bash`
 
 * Rbenv has installed: install this like normal rbenv-plugin
 
