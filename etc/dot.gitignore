@@ -1,0 +1,25 @@
+#tmp file
+*.local.tmp
+*.sw[a-z]
+*~
+db/data.yml
+*.rvmrc
+#ignore local/ in project directory
+local
+tmp/*
+#local gems link
+lgems
+
+#for local tmp files
+*.local.tmp
+*.local
+#*local
+
+public/mailbox
+
+#Gem related
+#Gemfile.lock
+
+.vagrant
+
+private

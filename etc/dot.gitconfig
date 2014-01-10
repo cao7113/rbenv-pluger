@@ -1,0 +1,22 @@
+[user]
+	name = cao7113
+	email = cao7113@hotmail.com
+[alias]
+	co = checkout
+	br = branch
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+  ui = auto
+[core]
+	excludesfile = /home/cao/.gitignore
+	editor = mate -w
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[github]
+	user = cao7113
+	token = 

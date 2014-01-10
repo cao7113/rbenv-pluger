@@ -52,6 +52,10 @@ About ruby-build:
     * RBENV_BUILD_ROOT 存放编译时的源码（-k时），默认为$RBENV_ROOT/sources
     * RUBY_BUILD_CACHE_PATH caching downloaded package files #如$RBENV_ROOT/cache存在，则将此目录设为ruby源码包的缓存之地，在网络不畅达时此项挺有用！
 
+## TODO
+
+* 提交到ubuntu中心？
+
 ## Ref:
 
 * https://github.com/sstephenson/rbenv

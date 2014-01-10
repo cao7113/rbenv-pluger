@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 set -e 
+
 function usage() {
-  echo "Usage:[RUBY_VERSION=2.0.0-p353] [PREFIX=/path/to/prefix] [INSTALL_TYPE=user|system] $0 #default is user"
+  cat <<-Doc
+  Usage: $0 #default is user"
+
+  available optional environments:
+   * RUBY_VERSION=2.0.0-p353   
+   * PREFIX=/path/to/install/prefix
+   * INSTALL_TYPE=user|system  default is user
+Doc
 }
 [ "$1" = "-h" -o "$1" = "--help" ] && usage && exit 1
-[ "$1" = "-v" -o "$1" = "--debug" ] && set -x
+[ "$1" = "-d" -o "$1" = "--debug" ] && set -x
 
 install_type=${INSTALL_TYPE:-user}
 rbenv_repo=${RBENV_REPO:-https://github.com/sstephenson/rbenv.git}

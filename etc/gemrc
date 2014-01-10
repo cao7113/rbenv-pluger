@@ -1,4 +1,6 @@
+#put ~/.gemrc or /etc/gemrc
 ---
+:update_sources: true
 :sources:
 - http://ruby.taobao.org
 - http://rubygems.org
