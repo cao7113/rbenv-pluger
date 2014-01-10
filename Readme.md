@@ -54,7 +54,8 @@ About ruby-build:
 
 ## TODO
 
-* 提交到ubuntu中心？
+* 提交到ubuntu中心
+* boot的bundle设计，独立出来，借鉴chef？
 
 ## Ref:
 
