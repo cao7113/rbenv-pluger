@@ -10,6 +10,7 @@ function usage() {
    * PREFIX=/path/to/install/prefix
    * INSTALL_TYPE=user|system  default is user
    * RUBY_BUILD_CACHE_PATH cache dir for package 
+   * CONFIGURE_OPTS="--disable-install-doc" do not install rdoc and capi
 
   run like: 
 
@@ -32,6 +33,7 @@ if [ -n "$RUBY_BUILD_CACHE_PATH" ];then
   export RUBY_BUILD_CACHE_PATH
   echo ==using cache: $RUBY_BUILD_CACHE_PATH
 fi
+[ -n "$CONFIGURE_OPTS" ] &&  export CONFIGURE_OPTS
 
 ## prepare
 which git >/dev/null || { echo No git installed! && exit 1; }
