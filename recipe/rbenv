@@ -3,12 +3,18 @@ set -e
 
 function usage() {
   cat <<-Doc
-  Usage: $0 #default is user"
+  Usage: $0 [--debug]
 
   available optional environments:
    * RUBY_VERSION=2.0.0-p353   
    * PREFIX=/path/to/install/prefix
    * INSTALL_TYPE=user|system  default is user
+   * RUBY_BUILD_CACHE_PATH cache dir for package 
+
+  run like: 
+
+    RUBY_BUILD_CACHE_PATH=~/down RUBY_VERSION=2.0.0-p353 recipe/rbenv --debug
+
 Doc
 }
 [ "$1" = "-h" -o "$1" = "--help" ] && usage && exit 1
@@ -17,6 +23,11 @@ Doc
 install_type=${INSTALL_TYPE:-user}
 rbenv_repo=${RBENV_REPO:-https://github.com/sstephenson/rbenv.git}
 pluger_repo=${PLUGER_REPO:-https://github.com/cao7113/rbenv-pluger.git}
+if [ -n "$RUBY_BUILD_CACHE_PATH" ];then
+  [ -d "$RUBY_BUILD_CACHE_PATH" ]||mkdir -p "$RUBY_BUILD_CACHE_PATH"
+  export RUBY_BUILD_CACHE_PATH
+  echo ==using cache: $RUBY_BUILD_CACHE_PATH
+fi
 
 ## prepare
 which git >/dev/null || { echo No git installed! && exit 1; }
