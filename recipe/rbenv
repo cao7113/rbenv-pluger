@@ -89,16 +89,8 @@ echo ==Installed rbenv into $rbenv_root, try: rbenv --version in new shell!
 
 ## install a ruby version
 ruby_version=$RUBY_VERSION
-echo ==========version: $ruby_version
-if [ -n "$ruby_version" ];then
-  if [ -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
-    echo Install ruby version: $ruby_version
-    $bin_rbenv install -kv $ruby_version
-  else
-    echo Err: not found file: "$plugins_root/ruby-build/share/ruby-build/$ruby_version"
-  fi
-else
-  echo Err: blank ruby version?
+if [ -n "$ruby_version" -a -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
+  $bin_rbenv install -kv $ruby_version
 fi
 
 echo Ok, all things have done now with a new ruby version: $ruby_version! 
