@@ -77,7 +77,7 @@ if [ -f $pluger_root/etc/default-gems ];then
   ln -sb $pluger_root/etc/default-gems $rbenv_root/default-gems
 fi
 
-gemrc_file=$pluger_root/etc/gemrc
+gemrc_file=$pluger_root/etc/dot.gemrc
 if [ -f $gemrc_file ];then
   [ -e ~/.gemrc ]||cp $gemrc_file ~/.gemrc
   [ -e /etc/gemrc ]||sudo ln -s $gemrc_file /etc/gemrc
