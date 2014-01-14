@@ -1,3 +1,4 @@
 #ref: http://guides.rubyonrails.org/rails_application_templates.html 
-
+#
 add_source "http://ruby.taobao.org" #favor taobao upto rubygems
+gsub_file "Gemfile", /^\s*(source 'https:\/\/rubygems.org')/, '#\1'
