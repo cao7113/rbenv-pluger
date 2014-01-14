@@ -1,4 +1,4 @@
-## put in ~/.railsrc
+# put in ~/.railsrc
 
-#--skip-bundle #skip `bundle install` when `rails new` to let you change source
-#-m ~/ush/rails/tmpl/rails3-haml-html5-template.rb #template for `rails new`
+--skip-bundle #skip `bundle install` when `rails new` to let you change source
+-m ~/.rbenv/plugins/rbenv-pluger/etc/dot.rails.app.template #application template

@@ -79,3 +79,5 @@ integreate in other environments(capistrano, chef):
 * https://github.com/capistrano/rbenv
 * https://github.com/fnichol/chef-rbenv
 * https://github.com/RiotGames/rbenv-cookbook
+
+* http://www.rubyinside.com/rbenv-a-simple-new-ruby-version-management-tool-5302.html
