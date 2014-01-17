@@ -3,7 +3,7 @@ set -e
 version=${1:-help}
 case "$version" in
   -h|--help|help)
-    echo Usage: $0 version_or_latest
+    echo "Usage: [PREFIX=/opt/redis] [FORCE=1] $0 versions|latest|<a_version>|help"
     exit 1
     ;;
   versions|-l|--list)
@@ -27,7 +27,7 @@ root=${PREFIX:-/opt/redis}
 [ -d $root ]||{ sudo mkdir -p $root && sudo chown -R $USER:$USER $root;}
 cd $root && echo root: $root
 
-[ -d redis-$version ] && echo Warn: found $root/redis-$version && exit 0 
+[ -d redis-$version ] && [ -z "$FORCE" ] && echo Warn: found $root/redis-$version && exit 0 
 [ -e redis-$version.tar.gz ]||{
   wget $url 
   tar xzf redis-$version.tar.gz
@@ -39,11 +39,11 @@ rm src/*.o
 
 link=/usr/local/bin/redis-$version-cli
 target_cli=$root/redis-$version/bin/redis-cli
-if [ -e $link ];then
+if [ -e $link -a -z "$FORCE" ];then
   echo Warn: found an existed link $link
 else
   echo "Make a handy link: $link -->$target_cli "
-  sudo ln -s $target_cli $link
+  sudo ln -sb $target_cli $link
 fi
 
 cat <<-Doc

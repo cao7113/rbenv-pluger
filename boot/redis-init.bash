@@ -2,8 +2,8 @@
 set -e
 
 prefix=${PREFIX:-/opt/redis}
-[ $# -lt 1 ] &&{ 
-  echo Usage: $0 version port, default port 6379, available versions: 
+[ $# -lt 1 -o "$1" = "-h" -o "$1" = "--help" ] &&{ 
+  echo "Usage: [FORCE=1] [PREFIX=/opt/redis] $0 version port, default port 6379, available versions:"
   ls -l $prefix
   exit 1
 }
@@ -11,8 +11,8 @@ version=$1
 port=${2:-6379}
 
 _root=$prefix/redis-$version
-[ -d $_root/bin ] || { echo No $_root/bin && exit 1;}
-[ -e /etc/redis/$port.conf ] && echo Found file /etc/redis/$port.conf && exit 1
+[ -d $_root/bin -o -n "$FORCE" ] || { echo No $_root/bin && exit 1;}
+[ -e /etc/redis/$port.conf -a -z "$FORCE" ] && echo Found file /etc/redis/$port.conf && exit 1
 
 echo ==Using redis: $_root/bin/redis-server
 cd $_root/utils
