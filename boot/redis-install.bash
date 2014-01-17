@@ -28,16 +28,29 @@ root=${PREFIX:-/opt/redis}
 cd $root && echo root: $root
 
 [ -d redis-$version ] && echo Warn: found $root/redis-$version && exit 0 
-wget $url 
-tar xzf redis-$version.tar.gz
+[ -e redis-$version.tar.gz ]||{
+  wget $url 
+  tar xzf redis-$version.tar.gz
+}
 cd redis-$version
 make V=1
 PREFIX=$root/redis-$version make install
+rm src/*.o
+
+link=/usr/local/bin/redis-$version-cli
+target_cli=$root/redis-$version/bin/redis-cli
+if [ -e $link ];then
+  echo Warn: found an existed link $link
+else
+  echo "Make a handy link: $link -->$target_cli "
+  sudo ln -s $target_cli $link
+fi
+
 cat <<-Doc
 ==Have installed into path: $root/redis-$version
 If on server, run below to configure init:
 
-  run other init script or direct ( cd $root/redis-$version/utils && sudo ./install_server.sh )
+  run redis-init.bash script or direct ( cd $root/redis-$version/utils && sudo ./install_server.sh )
 
   Note: 
   
