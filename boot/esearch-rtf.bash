@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-search_home=${1:-/opt/esearch}
+search_home=${PREFIX:-/opt/esearch}
 rtf_url=https://github.com/medcl/elasticsearch-rtf
 
 [ ! -e $search_home ] && sudo mkdir -p $search_home
