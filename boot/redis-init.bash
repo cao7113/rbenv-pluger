@@ -14,7 +14,9 @@ _root=$prefix/redis-$version
 
 echo ==Using redis: $_root/bin/redis-server
 cd $_root/utils
-sudo ./install_server.sh
+cp install_server.sh install_server_local.sh
+sed -i 
+#sudo ./install_server.sh
 
 link=/usr/local/bin/redis-$version-cli
 target_cli=$_root/bin/redis-cli
