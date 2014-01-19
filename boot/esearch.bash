@@ -37,3 +37,5 @@ esac
 #sudo bin/plugin -install mobz/elasticsearch-head && echo access at http://localhost:9200/_plugin/head/
 #sudo bin/plugin -install elasticsearch/elasticsearch-analysis-smartcn/1.2.0
 
+#upstart service
+#https://gist.github.com/rbscott/1052015/raw/8b4da0e3fdd9e9276b6d0b8ac55bf4b0a680bc8d/elasticsearch.conf
