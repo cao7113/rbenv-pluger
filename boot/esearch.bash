@@ -4,6 +4,12 @@ which java &>/dev/null || { echo No java environment, recommend jdk7 && exit 1;}
 esearch_home=${PREFIX:-/opt/esearch}
 [ -d $esearch_home ] ||{ sudo mkdir -p $esearch_home && sudo chown -R $USER:$USER $esearch_home;}
 cd $esearch_home
+cat <<-Doc
+ ref:
+   https://github.com/elasticsearch/elasticsearch
+ Ruby: 
+   https://github.com/karmi/retire
+Doc
 
 action=${1:-help}
 case "$action" in 
@@ -12,7 +18,8 @@ case "$action" in
     exit
     ;;
   -l|--list|list)
-    xdg-open http://www.elasticsearch.org/downloads/ 
+    download_url=http://www.elasticsearch.org/downloads/
+    which xdg-open &>/dev/null && xdg-open $download_url || echo Visit: $download_url 
     exit
     ;;
   *)
@@ -30,5 +37,3 @@ esac
 #sudo bin/plugin -install mobz/elasticsearch-head && echo access at http://localhost:9200/_plugin/head/
 #sudo bin/plugin -install elasticsearch/elasticsearch-analysis-smartcn/1.2.0
 
-#Ruby:
-# https://github.com/karmi/retire

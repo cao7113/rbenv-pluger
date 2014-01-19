@@ -13,12 +13,20 @@ old_pwd=`pwd`
 cd $search_home 
 git clone $rtf_url $rtf_name 
 cd $rtf_name
-search_script=elasticsearch/bin/service/elasticsearch
-chmod +x $search_script
-sudo ln -sb $rtf_home/$search_script /usr/local/bin/esearch-rtf
+runtime=elasticsearch/bin/service/elasticsearch
+chmod +x $runtime
+sudo ln -sb $rtf_home/$runtime /usr/local/bin/esearch-rtf
 cd $old_pwd
 cat <<Doc
   Installed into $rtf_home from $rtf_url
 
   esearch-rtf console|start|stop|install|remove
+
+  vi elasticsearch-rtf/elasticsearch/bin/service/elasticsearch.conf
+
+  默认JAVA HEAP大小为1G，根据你的服务器环境，需要自行调整，一般设置为物理内存的50%.
+
+  set.default.ES_HEAP_SIZE=1024
+
+  detail ref: https://github.com/medcl/elasticsearch-rtf
 Doc
