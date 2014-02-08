@@ -70,7 +70,7 @@ git clone $pluger_repo $pluger_root
 }
 
 bin_rbenv=$rbenv_root/bin/rbenv
-$bin_rbenv pluger bundle default
+RBENV_ROOT=$rbenv_root $bin_rbenv pluger bundle default
 
 #set for default-gems
 if [ -f $pluger_root/etc/default-gems ];then
@@ -117,7 +117,7 @@ echo ==Installed rbenv into $rbenv_root, try: rbenv --version in new shell!
 ## install a ruby version
 ruby_version=$RUBY_VERSION
 if [ -n "$ruby_version" -a -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
-  $bin_rbenv install -kv $ruby_version
+  RBENV_ROOT=$rbenv_root $bin_rbenv install -kv $ruby_version
 fi
 
 echo Ok, all things have done now with a new ruby version: $ruby_version! 
