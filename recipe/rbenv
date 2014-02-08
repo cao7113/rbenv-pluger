@@ -8,7 +8,7 @@ function usage() {
   available optional environments:
    * RUBY_VERSION=2.0.0-p353   
    * PREFIX=/path/to/install/prefix
-   * INSTALL_TYPE=user|system  default is user
+   * INSTALL_TYPE=user|system  default is system
    * RUBY_BUILD_CACHE_PATH cache dir for package 
    * CONFIGURE_OPTS="--disable-install-doc" do not install rdoc and capi
 
@@ -25,7 +25,7 @@ Doc
 [ "$1" = "-h" -o "$1" = "--help" ] && usage && exit 1
 [ "$1" = "-d" -o "$1" = "--debug" ] && set -x
 
-install_type=${INSTALL_TYPE:-user}
+install_type=${INSTALL_TYPE:-system}
 rbenv_repo=${RBENV_REPO:-https://github.com/sstephenson/rbenv.git}
 pluger_repo=${PLUGER_REPO:-https://github.com/cao7113/rbenv-pluger.git}
 if [ -n "$RUBY_BUILD_CACHE_PATH" ];then
@@ -79,8 +79,8 @@ fi
 
 gemrc_file=$pluger_root/etc/dot.gemrc
 if [ -f $gemrc_file ];then
-  [ -e ~/.gemrc ]||cp $gemrc_file ~/.gemrc
-  [ -e /etc/gemrc ]||sudo ln -s $gemrc_file /etc/gemrc
+  [ -e ~/.gemrc ]||cp -b $gemrc_file ~/.gemrc
+  [ -e /etc/gemrc ]||sudo ln -sb $gemrc_file /etc/gemrc
 fi
 
 ########################################
@@ -94,7 +94,7 @@ export RBENV_ROOT=$rbenv_root #required
 RCFILE
 
 if [ "$install_type" = "user" ];then
-  init_file=~/.bashrc
+  init_file=~/.bashrc #TODO: precede the return statement
   if grep -q "set rbenv" $init_file; then
     echo Has set rbenv in file: $init_file
   else
