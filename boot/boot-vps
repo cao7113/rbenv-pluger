@@ -8,6 +8,7 @@ Steps:
 * create an init sudo user
 * install git
 * get rbenv-pluger 
-* install ruby env
-* install apps: gitolite
-* install user apps
+* rbenv
+* gitolite
+* nginx
+* user apps: nesta
