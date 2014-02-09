@@ -1,0 +1,12 @@
+#!/usr/bin/env bash 
+# Build an init vps server env
+
+exit 
+
+Steps:
+
+* create an init sudo user
+* install git and base server env
+* get rbenv-pluger 
+* install ruby env
+* install apps: git repo, user apps
