@@ -6,7 +6,7 @@ set -e
 
 ssh_account=$1
 
-[ -e ~/.ssh/id_rsa.pub ]||echo No ~/.ssh/id_rsa.pub, run: ssh/keygen firstly && exit 1
+[ -e ~/.ssh/id_rsa.pub ]||{ echo No ~/.ssh/id_rsa.pub, run: ssh/keygen firstly && exit 1;}
 
 echo "==>Copy public key to remote server:$ssh_account"
 #/usr/bin/ssh-copy-id is a shell script, in its heart is:

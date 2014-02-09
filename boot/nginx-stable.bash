@@ -10,7 +10,7 @@ echo http://nginx.org/en/linux_packages.html#stable
 sources_file=/etc/apt/sources.list
 grep -q nginx $sources_file && echo Installed nginx && exit 1 
 
-wget -O /etc/nginx_signing.key http://nginx.org/keys/nginx_signing.key
+wget -O /tmp/nginx_signing.key http://nginx.org/keys/nginx_signing.key
 sudo apt-key add /etc/nginx_signing.key
 
 ubuntu_codename=`lsb_release --codename --short` #e.g. precise for ubuntu 12.04LTS

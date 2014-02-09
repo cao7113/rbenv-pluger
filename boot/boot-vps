@@ -6,7 +6,8 @@ exit
 Steps:
 
 * create an init sudo user
-* install git and base server env
+* install git
 * get rbenv-pluger 
 * install ruby env
-* install apps: git repo, user apps
+* install apps: gitolite
+* install user apps

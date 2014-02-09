@@ -9,6 +9,8 @@ admin_pub=$1
 sudo apt-get -y install git openssh-server && echo install git and ssh server
 sudo useradd -m -s /bin/bash git && echo create a git user
 sudo cp -b $admin_pub /home/git/
+pubfile=`basename $admin_pub`
+sudo chown git:git /home/git/$pubfile
 
 sudo -u git -H -i <<-More
   if [ ! -d gitolite ];then
@@ -18,7 +20,7 @@ sudo -u git -H -i <<-More
   fi
   mkdir -p \$HOME/bin
   gitolite/install -to \$HOME/bin
-  \$HOME/bin/gitolite setup -pk `basename $admin_pub`
-  cd \$HOME && rm -f `basename $admin_pub` && echo Remove useless file
+  \$HOME/bin/gitolite setup -pk $pubfile
+  cd \$HOME && rm -f $pubfile && echo Remove useless file
 More
 echo Install /home/git as git user...
