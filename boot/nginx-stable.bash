@@ -14,11 +14,12 @@ wget -O /tmp/nginx_signing.key http://nginx.org/keys/nginx_signing.key
 sudo apt-key add /tmp/nginx_signing.key
 
 ubuntu_codename=`lsb_release --codename --short` #e.g. precise for ubuntu 12.04LTS
-sudo cat<<-Note >$nginx_sources_list
+cat<<-Note >/tmp/nginx-stable.sources.list
 #set nginx sources
 deb http://nginx.org/packages/ubuntu/ $ubuntu_codename nginx
 deb-src http://nginx.org/packages/ubuntu/ $ubuntu_codename nginx
 Note
+sudo mv /tmp/nginx-stable.sources.list $nginx_sources_list
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
