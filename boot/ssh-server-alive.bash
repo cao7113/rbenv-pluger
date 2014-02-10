@@ -31,6 +31,8 @@ cat <<-Doc
 
       GatewayPorts yes
 
+    note: 也应该加上其它两句
+
     then ports on vps(Note: also restart sshdog or relink):
 
       tcp        0      0 0.0.0.0:50022           0.0.0.0:*               LISTEN      2965/sshd: doger
