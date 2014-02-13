@@ -18,6 +18,6 @@ end
 
 ##from my ruby config
 #require 'ulog'
-#require 'console_util'
+require 'console_util'
 #require 'meta'
 #require 'tracing'

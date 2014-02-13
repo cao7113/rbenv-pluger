@@ -9,11 +9,8 @@ files=( irbrc railsrc rails.irbrc )
 for f in ${files[@]};do
   file=$rcroot/dot.$f
   if [ -f $file ];then
-    if [ ! -f $troot/.$f ];then
-      cp $file $troot/.$f
-    else
-      echo Warn: already exists: $troot/.$f
-    fi
+    [ -f $troot/.$f ] && echo Warn: overwrite already exists: $troot/.$f
+    cp -b $file $troot/.$f
   else
     echo No rcfile: $file
   fi
