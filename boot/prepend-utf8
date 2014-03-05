@@ -16,7 +16,7 @@ function check_and_prepend_utf8(){
     echo "#encoding: utf-8" >$t
     cat $f >>$t
     mv -b $t $f
-    echo --App utf-8 into file: $f
+    echo --Append utf-8 into file: $f
   fi
 }
 
