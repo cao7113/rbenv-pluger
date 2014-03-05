@@ -1,5 +1,7 @@
 #!/usr/bin/env bash 
 
+#Usage: ./this_script your_ruby_app_path
+
 [ $# -lt 1 ] && echo Usage: $0 path && exit 1
 datapath=$1
 
