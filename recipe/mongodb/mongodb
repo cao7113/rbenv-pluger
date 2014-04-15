@@ -1,0 +1,44 @@
+#!/usr/bin/env bash 
+set -e
+_root=$(dirname $0)
+echo $_root
+
+action=$1
+case $action in
+  init)
+    for f in mongodb.conf mongodb-instance.conf;do
+      sudo cp -b $_root/init/$f /etc/init
+    done
+    ;;
+  add-node)
+    [ $# -lt 2 ] && echo Usage: $0 $action nodename && exit 1
+    node=$2
+    target_conf=/etc/mongodb.d/$node.conf
+    [ -f $target_conf ] && echo Already exist $target_conf && exit 1
+    #detect rset name from node name???
+    sed "s/\$node/$node/" $_root/mongodb.d/cluster-node.conf.sample | cat >/tmp/mdb.conf
+    sudo mv /tmp/mdb.conf $target_conf
+    sudo vi $target_conf
+    data_dir=/var/lib/mongodb-cluster/$node
+    [ -d $data_dir ] || {
+      sudo mkdir -p $data_dir
+      sudo chown -R mongodb:mongodb $data_dir
+    }
+    echo Config a cluster node: $node, check and restart mongodb service 
+    ;;
+  rm-node)
+    [ $# -lt 2 ] && echo Usage: $0 $action nodename && exit 1
+    node=$2
+    target_conf=/etc/mongodb.d/$node.conf
+    #sudo stop mongodb-instance CONFIG=$target_conf #???
+    if [ -f $target_conf ];then
+      sudo rm -f $target_conf 
+      data_dir=/var/lib/mongodb-cluster/$node
+      sudo rm -fr $data_dir
+    fi
+    echo Rm cluster node: $node!
+    ;;
+  *)
+    echo Unknow action: $action!
+    ;;
+esac
