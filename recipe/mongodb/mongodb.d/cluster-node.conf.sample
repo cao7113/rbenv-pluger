@@ -1,0 +1,9 @@
+port = 27027
+replSet = rs0
+dbpath = /var/lib/mongodb-cluster/$node
+logpath = /var/log/mongodb/$node.log
+pidfilepath = /var/run/mongodb/$node.pid
+logappend = true
+oplogSize = 128
+smallfiles = true
+rest = true
