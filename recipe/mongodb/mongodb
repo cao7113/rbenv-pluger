@@ -6,6 +6,9 @@ echo $_root
 action=$1
 case $action in
   init)
+    for dir in /var/lib/mongodb /var/log/mongodb /var/run/mongodb /var/lib/mongodb-cluster /etc/mongodb.d; do
+      [ -d $dir ] || { mkdir -p $dir && chown mongodb:mongodb $dir;}
+    done
     for f in mongodb.conf mongodb-instance.conf;do
       sudo cp -b $_root/init/$f /etc/init
     done
