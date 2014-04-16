@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 set -e
-_root=$(dirname $0)
-echo $_root
+_root=$(readlink -f $(dirname $0)/../mongodb)
+echo $_root 
 
 action=$1
 case $action in
