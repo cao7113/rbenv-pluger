@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 set -e
-_root=$(readlink -f $(dirname $0)/../mongodb)
+_root=$(readlink -f $(dirname $0)/../etc/mongodb)
 echo $_root 
 
 action=$1
