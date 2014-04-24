@@ -3,6 +3,7 @@
 *.sw[a-z]
 *~
 db/data.yml
+db/migrate_sql
 *.rvmrc
 #ignore local/ in project directory
 local
