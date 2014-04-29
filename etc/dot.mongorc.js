@@ -54,7 +54,9 @@ function generate_test_data(dbname, colname, num){
   }
   print(col.count());
 }
-//gen_tryit("tryit", "notes", 200);
+function init_trydb(){
+  generate_test_data("trydb", "notes", 200);
+}
 
 function show_indexes(){
   db.getCollectionNames().forEach(function(x){
