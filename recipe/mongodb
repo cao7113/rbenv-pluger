@@ -38,6 +38,7 @@ case $action in
       sudo rm -f $target_conf 
       data_dir=/var/lib/mongodb-cluster/$node
       sudo rm -fr $data_dir
+      sudo rm -fr /var/log/mongodb/$node.log
     fi
     echo Rm cluster node: $node!
     ;;
