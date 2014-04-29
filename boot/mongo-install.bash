@@ -17,7 +17,7 @@ sudo apt-get update
 if [ -n "$version2dot6" ];then
   sudo apt-get install mongodb-org
   #sudo apt-get install mongodb-org=2.6.1 mongodb-org-server=2.6.1 mongodb-org-shell=2.6.1 mongodb-org-mongos=2.6.1 mongodb-org-tools=2.6.1
-  ##Pin a specific version
+  ##Pin to a specific version
   #echo "mongodb-org hold" | sudo dpkg --set-selections
   #echo "mongodb-org-server hold" | sudo dpkg --set-selections
   #echo "mongodb-org-shell hold" | sudo dpkg --set-selections
@@ -26,7 +26,7 @@ if [ -n "$version2dot6" ];then
 else  #main for 2.4
   #You cannot install this package concurrently with the mongodb, mongodb-server, or mongodb-clients packages provided by Ubuntu.
   sudo apt-get install mongodb-10gen
-  #install a specific version
+  #Pin to a specific version
   # sudo apt-get install mongodb-10gen=2.2.3
   # echo "mongodb-10gen hold"| sudo dpkg --set-selections #prevent unintended upgrades
 fi
