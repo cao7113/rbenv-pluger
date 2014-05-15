@@ -14,6 +14,7 @@ case $action in
     [ ! -e $repo/.git ] && echo $repo is not a git repo. && exit 1
     reponame=`basename $repo`
     [ -e $repos/$reponame.git ] && echo Has created $repos/$reponame.git && exit 1
+    #TODO can just a soft link to original repo? good idea!
     git clone --bare $repo $repos/$reponame.git
     cp $repos/$reponame.git/hooks/post-update.sample $repos/$reponame.git/hooks/post-update
     (cd $repos/$reponame.git && git update-server-info && echo ran git update-server-info ...)
