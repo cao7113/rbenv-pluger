@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Summary: install a local git daemon
+# Summary: install a local git daemon with git protocol
 
 set -e
 sudo apt-get -y install git-daemon-run
