@@ -20,3 +20,5 @@
 [github]
 	user = cao7113
 	token = 
+[push]
+	default = simple

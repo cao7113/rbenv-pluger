@@ -11,6 +11,7 @@ function usage() {
    * RUBY_VERSION=2.0.0-p353 default  global installed ruby
    * RUBY_BUILD_CACHE_PATH  cache dir for package 
    * CONFIGURE_OPTS="--disable-install-doc"  do not install rdoc and C-api
+   * RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/ e.g RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/ rbenv install -kv 2.0.0-p481
 
   run like: 
 
