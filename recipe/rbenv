@@ -15,7 +15,7 @@ function usage() {
 
   run like: 
 
-    RUBY_BUILD_CACHE_PATH=~/down RUBY_VERSION=2.0.0-p353 recipe/rbenv --debug
+    RUBY_BUILD_CACHE_PATH=~/down RUBY_VERSION=2.0.0-p481 recipe/rbenv --debug
     
     or by url style:
 
@@ -124,7 +124,7 @@ RCFILE
   echo Set rbenv into file: $init_file, reshell to take effect!
 fi
 
-## install a ruby version
+## install a ruby version, not work?
 ruby_version=$RUBY_VERSION
 if [ -n "$ruby_version" -a -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
   if [ ! -d `$bin_rbenv prefix $ruby_version` ];then
