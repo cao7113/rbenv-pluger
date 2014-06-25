@@ -11,6 +11,7 @@
   ui = auto
 [core]
 	excludesfile = /home/cao/.gitignore
+  editor = vim
 	autocrlf = input
 [apply]
 	whitespace = nowarn
