@@ -24,3 +24,5 @@ public/mailbox
 .vagrant
 
 private
+
+log
