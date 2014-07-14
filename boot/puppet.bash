@@ -1,0 +1,32 @@
+#!/usr/bin/env bash 
+
+set -e
+#on ubuntu, supprt: precise, trusty
+
+#pre-install
+echo require ruby installed !
+
+apt_pkg_url=https://apt.puppetlabs.com/puppetlabs-release-$(lsb_release -sc).deb
+dest_file=/tmp/$(basename $apt_pkg_url)
+echo Ref: http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubuntu.html
+echo ==Step1: for newest versions of Puppet, enable the Puppet Labs Package Repository ... 
+echo get $apt_pkg_url to $dest_file ...
+wget -O $dest_file  $apt_pkg_url 
+sudo dpkg -i $dest_file
+sudo apt-get update
+
+## for two types of deployment: agent/master or standalone
+
+if [ "$1" = "master" ];then
+  echo Step2: Install puppet on the Puppet Master Server, skip this for a standalone deployment
+  #sudo apt-get install puppetmaster-passenger #recommend with production-capacity web server
+  sudo apt-get -y install puppetmaster
+  echo Install puppet, its prerequisties and an init script at /etc/init.d/puppetmaster
+  #upgrade
+  #sudo apt-get update
+  #sudo puppet resource package puppet ensure=latest
+fi
+
+echo Install Puppet on Agent nodes or standalone mode
+sudo apt-get -y install puppet
+echo install puppet and init script at /etc/init.d/puppet
