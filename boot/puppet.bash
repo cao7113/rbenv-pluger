@@ -1,4 +1,5 @@
 #!/usr/bin/env bash 
+#This just for open source puppet, not Puppet Enterprise
 
 set -e
 #on ubuntu, supprt: precise, trusty
