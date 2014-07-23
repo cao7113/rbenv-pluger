@@ -9,12 +9,14 @@ echo require ruby installed !
 
 apt_pkg_url=https://apt.puppetlabs.com/puppetlabs-release-$(lsb_release -sc).deb
 dest_file=/tmp/$(basename $apt_pkg_url)
-echo Ref: http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubuntu.html
-echo ==Step1: for newest versions of Puppet, enable the Puppet Labs Package Repository ... 
-echo get $apt_pkg_url to $dest_file ...
-wget -O $dest_file  $apt_pkg_url 
+if [ ! -f $dest_file ];then
+  echo Ref: http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubuntu.html
+  echo ==Step1: for newest versions of Puppet, enable the Puppet Labs Package Repository ... 
+  echo get $apt_pkg_url to $dest_file ...
+  wget -O $dest_file  $apt_pkg_url 
+fi
 sudo dpkg -i $dest_file
-sudo apt-get update
+sudo apt-get -y update
 
 ## for two types of deployment: agent/master or standalone
 

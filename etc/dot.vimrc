@@ -28,6 +28,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
+Bundle 'rodjek/vim-puppet.git'
 
 " vim-scripts repos
 " need wmctrl on ubuntu by sudo apt-get install wmctrl
