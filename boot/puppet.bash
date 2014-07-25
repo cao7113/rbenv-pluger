@@ -13,7 +13,7 @@ echo ==Step1: for newest versions of Puppet, enable the Puppet Labs Package Repo
 echo get $apt_pkg_url to $dest_file ...
 wget -O $dest_file  $apt_pkg_url 
 sudo dpkg -i $dest_file
-sudo apt-get update
+sudo apt-get -y update
 
 ## for two types of deployment: agent/master or standalone
 
