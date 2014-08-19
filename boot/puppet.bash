@@ -7,13 +7,16 @@ set -e
 #pre-install
 echo require ruby installed !
 
+#lsb_release from package lsb-release
 apt_pkg_url=https://apt.puppetlabs.com/puppetlabs-release-$(lsb_release -sc).deb
 dest_file=/tmp/$(basename $apt_pkg_url)
-if [ ! -f $dest_file ];then
+#better check  #installed by the .deb package
+apt_src=/etc/apt/sources.list.d/puppetlabs.list
+if [ ! -f $apt_src ];then
   echo Ref: http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubuntu.html
   echo ==Step1: for newest versions of Puppet, enable the Puppet Labs Package Repository ... 
   echo get $apt_pkg_url to $dest_file ...
-  wget -O $dest_file  $apt_pkg_url 
+  wget -q -O $dest_file  $apt_pkg_url 
 fi
 sudo dpkg -i $dest_file
 sudo apt-get -y update
