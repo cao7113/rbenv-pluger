@@ -22,7 +22,7 @@ sudo apt-get -y update
 # libcherokee-mod-streaming not work for 14.04 
 sudo apt-get -y install cherokee cherokee-admin cherokee-doc libcherokee-mod-libssl libcherokee-mod-rrd
 
-#run by: sudo cherokee-admin -b
+#run by: sudo cherokee-admin -b --unsecure
 # admin port at 9090
 
 echo Ok
