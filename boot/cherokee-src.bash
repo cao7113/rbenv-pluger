@@ -29,7 +29,7 @@ webname=${name/v/webserver-}
 cd $webname
 #accept options for ./configure
 ./autogen.sh --localstatedir=/var --prefix=/usr --sysconfdir=/etc --with-wwwroot=/var/www
-echo ===Has configured
+echo ===Has configured Not working now, too complex to configure!!!
 make
 sudo make install
 cd -
