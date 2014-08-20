@@ -33,6 +33,7 @@ ssh-copy-id -i ${ssh_key}.pub $host_user@$host_ip  #copy pub key into host
 #ensure The authenticity of host '10.0.2.2 (10.0.2.2)' for root user, add an item in /root/.ssh/known_hosts
 sudo ssh -o StrictHostKeyChecking=no -i $ssh_key $host_user@$host_ip ':' #not login
 
+#低版本12.04不支持此特性+dir:/etc/auto.master.d，须直接写入 /etc/auto.master文件
 tmp_master=/tmp/host.sshfs.autofs #require *.autofs config file
 cat <<-Config >$tmp_master
 #--verbose 
