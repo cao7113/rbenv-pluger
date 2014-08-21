@@ -16,6 +16,7 @@ function usage() {
   run like: 
 
     RUBY_BUILD_CACHE_PATH=~/down RUBY_VERSION=2.0.0-p481 recipe/rbenv --debug
+    RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/ RUBY_BUILD_CACHE_PATH=~/down RUBY_VERSION=2.0.0-p481 recipe/rbenv --debug
     
     or by url style:
 
