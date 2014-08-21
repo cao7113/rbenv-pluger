@@ -37,7 +37,7 @@ tar zvxC uwsgi_latest_from_installer --strip-components=1 -f uwsgi_latest_from_i
 cd uwsgi_latest_from_installer
 UWSGI_PROFILE="$1" UWSGI_BIN_NAME="$2" make
 
-#in ruby way
+#in ruby way install the latest stable release
 #gem install uwsgi #有时会很慢, ？？？
 
 #rbthreads is a plugin need to load??
@@ -48,6 +48,7 @@ UWSGI_PROFILE="$1" UWSGI_BIN_NAME="$2" make
 sudo apt-get -y install python-dev
 #choices from:
 pip install uwsgi
+pip install http://projects.unbit.it/downloads/uwsgi-lts.tar.gz
 #network installer
 curl http://uwsgi.it/install | bash -s default /tmp/uwsgi #(this will install the uWSGI binary into /tmp/uwsgi, feel free to change it).
 
@@ -58,7 +59,11 @@ tar zxvf uwsgi-latest.tar.gz
 make #or python uwsgiconfig.py --build
 #after the build you will have a uwsgi binary in the current directory.
 
-#At the end of the build, you will get a report of the enabled features. If something you require is missing, just add the development headers and rerun the build. For example to build uWSGI with ssl and perl regexp support you need libssl-dev and pcre headers.
+At the end of the build, you will get a report of the enabled features. If something you require is missing, just add the development headers and rerun the build. For example to build uWSGI with ssl and perl regexp support you need libssl-dev and pcre headers.
+
+uWSGI has a really fast development cycle, so packages may not be up to date. Building it requires less than 30
+seconds and very few dependencies (only Python interpreter, a C compiler/linker and the libs/headers for your language
+of choice)
 Note
 
 echo ok
