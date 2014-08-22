@@ -14,9 +14,19 @@ sudo apt-get -y install build-essential python libssl-dev libpcre3-dev
 #make rack # or UWSGI_PROFILE=rack make;  or make PROFILE=rack; or python uwsgiconfig.py --build rack
 
 #newwork installer, read the script!!
-#download from http://projects.unbit.it/downloads/
-#curl http://uwsgi.it/install | bash -s rack /tmp/uwsgi ##/tmp/uwsgi is a monolithic uWSGI binary support ruby/rack
-#snapshot
+prof=${1:-rack}
+bin_path=${2:-/opt/uwsgi/latest/uwsgi}
+if [ -e $bin_path ];then
+  echo Found $bin_path!!!
+  exit 0
+fi
+bin_dir=$(dirname $bin_path)
+sudo mkdir -p $bin_dir && sudo chown -R $USER:$USER $bin_dir
+curl http://uwsgi.it/install | bash -s $prof $bin_path #a monolithic uWSGI binary support ruby/rack
+sudo ln -sb $bin_path /usr/local/bin/uwsgi #into PATH
+echo Has installed uwsgi at $bin_path with $prof support
+
+<<-Note #snapshot from http://uwsgi.it/install
 echo "*** uWSGI installer ***"
 if [ $# -ne 2 ]
 then
@@ -36,6 +46,7 @@ mkdir uwsgi_latest_from_installer
 tar zvxC uwsgi_latest_from_installer --strip-components=1 -f uwsgi_latest_from_installer.tar.gz
 cd uwsgi_latest_from_installer
 UWSGI_PROFILE="$1" UWSGI_BIN_NAME="$2" make
+Note
 
 #in ruby way install the latest stable release
 #gem install uwsgi #有时会很慢, ？？？
