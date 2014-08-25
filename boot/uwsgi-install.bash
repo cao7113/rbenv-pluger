@@ -14,7 +14,8 @@ sudo apt-get -y install build-essential python libssl-dev libpcre3-dev
 #make rack # or UWSGI_PROFILE=rack make;  or make PROFILE=rack; or python uwsgiconfig.py --build rack
 
 #newwork installer, read the script!!
-prof=${1:-rack}
+#prof=${1:-rack}  
+prof=${1:-ruby2}  #Note: on ruby 2.x, to support rbthreads use ruby2 profile
 bin_path=${2:-/opt/uwsgi/latest/uwsgi}
 if [ -e $bin_path ];then
   echo Found $bin_path!!!
@@ -49,7 +50,7 @@ UWSGI_PROFILE="$1" UWSGI_BIN_NAME="$2" make
 Note
 
 #in ruby way install the latest stable release
-#gem install uwsgi #有时会很慢, ？？？
+#gem install uwsgi --verbose --debug #有时很慢？ 可见使用的ruby2 profile, 通用使用了上面的脚本（在项目根目录下install.sh文件）
 
 #rbthreads is a plugin need to load??
 #Ruby 1.9/2.0 introduced an improved threads support and uWSGI supports it via the ‘rbthreads’ plugin. This plugin is automatically built when you compile the uWSGI+ruby (>=1.9) monolithic binary.
