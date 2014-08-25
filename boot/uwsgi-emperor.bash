@@ -5,6 +5,8 @@ user=${1:-$USER}
 uwsgi_bin=`which uwsgi`
 vassals_dir=/etc/uwsgi
 sudo mkdir -p $vassals_dir
+sudo touch /var/log/emperor.log
+sudo chown $user:$user /var/log/emperor.log
 
 cat <<-Script >/tmp/emperor.conf
 description "uWSGI Emperor Job"
