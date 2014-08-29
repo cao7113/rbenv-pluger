@@ -1,5 +1,9 @@
 "Using vundle as vim plugin manager from 20120212
 "
+"新增一个从github来的vim plugin
+"Bundle 'xxx/xxx'
+"run: BundleInstall,  ref boot/gnome-vim
+"
 "====Basic settings
 set nocompatible               " be iMproved
 "无论何种模式，都开启鼠标,在终端里很有用。虽然能导致无法复制的问题，也比取消了方便
@@ -29,6 +33,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'tpope/vim-rails.git'
 Bundle 'rodjek/vim-puppet.git'
+Bundle 'scrooloose/nerdcommenter'
 
 " vim-scripts repos
 " need wmctrl on ubuntu by sudo apt-get install wmctrl
@@ -47,7 +52,9 @@ Bundle 'molokai'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
-filetype plugin indent on     " required! 
+"filetype plugin indent on     " required! 
+filetype plugin on     
+let mapleader=","
 
 "==NERD tree settings
 map <silent> <F12> :NERDTreeToggle<CR>
