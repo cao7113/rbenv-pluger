@@ -15,5 +15,4 @@ stop on runlevel [06]
 exec uwsgi --master --processes 4 --die-on-term --socket :3031 --wsgi-file /var/www/myapp.wsgi
 Conf
 
-
 ## TODO /etc/init/uwsgi-xxx.conf

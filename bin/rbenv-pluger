@@ -79,7 +79,8 @@ function bundle_plugs(){
     return 1
   fi
   for plug in `cat $bundle_file`; do
-    rbenv pluger install $plug
+    cmd="$0 install $plug"
+    echo run: $cmd && $cmd
   done
   echo Bundled $bundle_name
 }

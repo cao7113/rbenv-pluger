@@ -45,6 +45,9 @@ echo Has configured uWSGI emperor to $dest
 
 exit 0
 
+##########################################################################
+# Old??????
+
 #Created from mksh on 2014年 08月 25日 星期一 12:27:41 CST
 
 user=${1:-$USER}
