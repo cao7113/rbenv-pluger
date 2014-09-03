@@ -63,12 +63,13 @@ else
   [ "`stat --format '%U:%G' $rbenv_root`" = "$perm" ] || sudo chown -R $perm $rbenv_root
 fi
 bin_rbenv=$rbenv_root/bin/rbenv
+plugins_root=$rbenv_root/plugins
 
 [ -d $rbenv_root/.git ] || { 
   git clone $rbenv_repo $rbenv_root 
   mkdir -p $rbenv_root/shims
   mkdir -p $rbenv_root/cache && echo Recommend to use cache for ruby-build install in $rbenv_root/cache
-  plugins_root=$rbenv_root/plugins && mkdir -p $plugins_root
+  mkdir -p $plugins_root
   pluger_root=$plugins_root/rbenv-pluger
   git clone $pluger_repo $pluger_root
   #set for default-gems
@@ -86,9 +87,7 @@ bin_rbenv=$rbenv_root/bin/rbenv
   done
 }
 
-echo =========Has installed rbenv into $rbenv_root with `$bin_rbenv --version`
-echo ==  Press any key to continue for init rc files?
-read
+echo ====Has installed rbenv into $rbenv_root with `$bin_rbenv --version`
 
 ########################################
 #     set shell init file
@@ -129,14 +128,15 @@ RCFILE
   echo Set rbenv into file: $init_file, reshell to take effect!
 fi
 
-## install a ruby version, not work?
 ruby_version=$RUBY_VERSION
 if [ -n "$ruby_version" -a -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
-  if [ ! -d `$bin_rbenv prefix $ruby_version` ];then
+  this_ruby_dir=$rbenv_root/versions/$ruby_version 
+  if [ ! -d $this_ruby_dir ];then
     RBENV_ROOT=$rbenv_root $bin_rbenv install -kv $ruby_version && $bin_rbenv global $ruby_version
+    echo Has installed $ruby_version into $this_ruby_dir
   else
-    echo Has exited `$bin_rbenv prefix $ruby_version`
+    echo Warning: found existed $this_ruby_dir
   fi
 fi
 
-echo Ok, all things have done now with a new ruby version: $ruby_version! 
+echo Ok, all things have done now with a new ruby version: $ruby_version as global! 
