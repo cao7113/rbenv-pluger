@@ -29,3 +29,35 @@ Answer:
     or
 
     CONFIGURE_OPTS="--disable-install-doc" rbenv install -v 1.9.3-p194
+
+
+* rbenv build ruby 2.1.0 error
+readline.c:1977:26: error: ‘Function’ undeclared (first use in this function)
+rl_pre_input_hook = (Function *)readline_pre_input_hook;
+^
+readline.c:1977:26: note: each undeclared identifier is reported only once for each function it appears in
+readline.c:1977:36: error: expected expression before ‘)’ token
+rl_pre_input_hook = (Function *)readline_pre_input_hook;
+^
+readline.c: At top level:
+readline.c:634:1: warning: ‘readline_pre_input_hook’ defined but not used [-Wunused-function]
+readline_pre_input_hook(void)
+^
+make[2]: *** [readline.o] Error 1
+make[2]: Leaving directory `/tmp/ruby-build.20140502004823.5335/ruby-2.1.1/ext/readline'
+make[1]: *** [ext/readline/all] Error 2
+make[1]: Leaving directory `/tmp/ruby-build.20140502004823.5335/ruby-2.1.1'
+make: *** [
+
+build-ext] Error 2
+
+Fixed:
+
+* https://github.com/sstephenson/ruby-build/issues/526
+
+curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1
+or 
+curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | \
+rbenv install --patch --keep 2.1.1
+
+* http://stackoverflow.com/questions/23418227/rbenv-error-compiling-ruby-2-1-1

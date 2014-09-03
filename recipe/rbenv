@@ -8,18 +8,13 @@ function usage() {
   Optional environments:
    * INSTALL_TYPE=user|system, default is system
    * PREFIX=/path/to/rbenv/prefix, default: /opt
-   * RUBY_VERSION=2.0.0-p353, default global installed ruby
+   * RUBY_VERSION=2.0.0-p481, default global installed ruby
    * RUBY_BUILD_CACHE_PATH=~/down, cache dir for package 
    * CONFIGURE_OPTS="--disable-install-doc", do not install rdoc and C-api
    * RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/
 
-  run like: 
-
-    RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/ RUBY_VERSION=2.1.0 recipe/rbenv --debug
-    
-    or by url style:
-
-    curl -Lv https://raw2.github.com/cao7113/rbenv-pluger/master/recipe/rbenv | RUBY_VERSION=2.1.0 bash
+  !! ref boot/rbenv-installer for an example or on the fly:
+  curl -Lv https://raw2.github.com/cao7113/rbenv-pluger/master/recipe/rbenv | RUBY_VERSION=2.0.0-p481 bash
 Doc
 }
 

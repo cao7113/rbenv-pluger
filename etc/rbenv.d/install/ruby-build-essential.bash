@@ -1,4 +1,5 @@
 #hooks for ruby-build or rbenv install to compile rubies 
+#ref: https://github.com/sstephenson/ruby-build/wiki/Definitions
 osinfo=`uname -a`
 script_dir=$(dirname $BASH_SOURCE)/../../../boot #echo $BASH_SOURCE != $0 #this is sourced
 if echo $osinfo|grep -iq ubuntu; then
