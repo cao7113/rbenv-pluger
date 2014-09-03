@@ -3,7 +3,7 @@
 #:update_sources: true
 :sources:
 - http://ruby.taobao.org
-- http://rubygems.org
+#- http://rubygems.org
 
 # Disable ri and rdoc on production environment
 gem: --no-ri --no-rdoc
