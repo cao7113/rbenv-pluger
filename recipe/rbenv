@@ -123,6 +123,8 @@ RCFILE
   echo Set rbenv into file: $init_file, reshell to take effect!
 fi
 
+source $init_file #make rbenv avaliable in $PATH !!!
+
 ruby_version=$RUBY_VERSION
 if [ -n "$ruby_version" -a -f "$plugins_root/ruby-build/share/ruby-build/$ruby_version" ];then
   this_ruby_dir=$rbenv_root/versions/$ruby_version 
