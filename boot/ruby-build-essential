@@ -3,13 +3,14 @@
 
 echo ====running before hook in $BASH_SOURCE
 sudo apt-get -y update #&& sudo apt-get -y upgrade #update source
-sudo apt-get install -y curl git subversion #fetch
-sudo apt-get install -y build-essential autoconf libc6-dev automake libtool bison pkg-config #compiling
-sudo apt-get install -y zlib1g zlib1g-dev #unpack rubygems
-sudo apt-get install -y openssl libssl-dev libcurl4-openssl-dev #ruby's SSL
-sudo apt-get install -y libyaml-dev #ruby's YAML
-sudo apt-get install -y libreadline6 libreadline6-dev libncurses5-dev #irb
-sudo apt-get install -y libxml2-dev libxslt1-dev #parse XML via nokogiri 
-sudo apt-get install -y libpcre3 libpcre3-dev 
-sudo apt-get install -y nodejs #for rails
+sudo apt-get -y install curl git subversion #fetch
+sudo apt-get -y install build-essential autoconf libc6-dev automake libtool bison pkg-config #compiling
+sudo apt-get -y install zlib1g zlib1g-dev #unpack rubygems
+sudo apt-get -y install openssl libssl-dev libcurl4-openssl-dev #ruby's SSL
+sudo apt-get -y install libyaml-dev #ruby's YAML
+sudo apt-get -y install libreadline6 libreadline6-dev libncurses5-dev #irb
+sudo apt-get -y install libxml2-dev libxslt1-dev #parse XML via nokogiri 
+sudo apt-get -y install libpcre3 libpcre3-dev 
+sudo apt-get -y install libsqlite3-dev sqlite3 #for sqlite db basic use
+sudo apt-get -y install nodejs #for rails
 touch ~/.ruby-built-essential
