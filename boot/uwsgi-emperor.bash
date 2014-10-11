@@ -6,7 +6,7 @@ set -e
 app_user=${APP_USER:-$USER}
 
 root_dir=$(dirname $0)
-PATH=$root_dir:$PATH install
+#PATH=$root_dir:$PATH install
 
 #mk conf dir
 conf_dir=${CONF_DIR:-/etc/uwsgi}
