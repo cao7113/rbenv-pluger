@@ -17,4 +17,4 @@ sudo gpasswd -a ${USER} docker
 
 sudo restart docker
 
-echo Has add docker group and add $USER into docker group, relog to take effect!
+echo Has add docker group and add $USER into docker group, relogin to take effect!!!
