@@ -36,6 +36,7 @@ Bundle 'rodjek/vim-puppet.git'
 Bundle 'scrooloose/nerdcommenter'
 "echo "Plugin 'rking/ag.vim'" >> ~/.vimrc && vim +BundleInstall
 Plugin 'rking/ag.vim'
+"let g:agprg="/usr/bin/ag --column"
 
 " vim-scripts repos
 " need wmctrl on ubuntu by sudo apt-get install wmctrl
