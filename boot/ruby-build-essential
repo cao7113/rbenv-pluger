@@ -13,4 +13,5 @@ sudo apt-get -y install libxml2-dev libxslt1-dev #parse XML via nokogiri
 sudo apt-get -y install libpcre3 libpcre3-dev 
 sudo apt-get -y install libsqlite3-dev sqlite3 #for sqlite db basic use
 sudo apt-get -y install nodejs #for rails
+sudo apt-get -y install libffi-dev #for 2.2.0 ripper
 touch ~/.ruby-built-essential

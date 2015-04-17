@@ -30,3 +30,4 @@ log
 tjfeed
 
 config/schedule_local.yml
+.ruby-version
