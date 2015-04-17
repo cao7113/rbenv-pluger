@@ -12,5 +12,5 @@
 [ "$1" = "-h" ] && echo Usage: $0 Gemfile && exit 1
 target=${1:-Gemfile}
 [ ! -f $target ] && echo Not found file $target && exit 1
-sed -i -r -e 's|^(source .*rubygems.*)$|#\1\nsource "http://ruby.taobao.org"|' $target
+sed -i -r -e "s|^(source .*rubygems.*)$|# \1\nsource 'http://ruby.taobao.org'|" $target
 echo "change rubygems source --> taobao source in $target" 
