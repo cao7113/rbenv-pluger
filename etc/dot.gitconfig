@@ -22,3 +22,6 @@
 	token = 
 [push]
 	default = simple
+[http]
+	cookiefile = /tmp/git-cookie.txt
+	savecookies = true
