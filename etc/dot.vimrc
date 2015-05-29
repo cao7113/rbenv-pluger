@@ -71,3 +71,13 @@ set t_Co=256
 "设定文件编码类型，彻底解决编码问题, gb2312编码等
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk,ucs-bom,cp936
+
+"code folding
+"set foldmethod=syntax
+"set foldnestmax=5
+"autocmd BufEnter * exe "normal zR"
+
+"zo Open the fold on the same line as the cursor
+"zc Close the fold that the cursor is inside
+"zR Open all folds
+"zM Close all folds

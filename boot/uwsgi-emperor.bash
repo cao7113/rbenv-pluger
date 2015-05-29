@@ -9,7 +9,7 @@ app_user=${APP_USER:-$USER}
 #PATH=$root_dir:$PATH install
 
 #mk conf dir
-conf_dir=${CONF_DIR:-/etc/uwsgi}
+conf_dir=${CONF_DIR:-/etc/uwsgi/vassals}
 if [ -d $conf_dir ];then
   echo Has found $conf_dir 
 else
