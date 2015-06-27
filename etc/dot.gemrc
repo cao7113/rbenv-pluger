@@ -1,6 +1,5 @@
 #put ~/.gemrc or /etc/gemrc
 ---
-#:update_sources: true
 :sources:
 #Note: only one of these options!
 - http://ruby.taobao.org
@@ -11,8 +10,8 @@ gem: --no-ri --no-rdoc
 install: --no-ri --no-rdoc
 update: --no-ri --no-rdoc
 
-#:verbose: true
+:verbose: true
 #:benchmark: false
 #:backtrace: false
-#:update_sources: true
+:update_sources: true
 #:bulk_threshold: 1000
