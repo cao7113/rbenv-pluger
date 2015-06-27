@@ -31,3 +31,7 @@ tjfeed
 
 config/schedule_local.yml
 .ruby-version
+
+grack.yml
+
+app/assets/javascripts/base.js
