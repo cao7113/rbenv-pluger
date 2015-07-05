@@ -4,12 +4,15 @@ if IRB.respond_to?(:conf)
   IRB.conf[:AUTO_IDENT] = true 
 end
 
-##gems: irbtools
-#require 'map_by_method' 
-#require 'what_methods' 
-#require 'pp' #prety print
-#require 'fileutils'
-#include FileUtils
+# hirb
+begin
+  require 'hirb'
+rescue LoadError
+  # Missing goodies, bummer
+end
+if defined? Hirb
+  Hirb.enable
+end
 
 if $0 == 'script/rails' && defined?(Rails) && Rails.env #in rails
   railsrc = File.expand_path('~/.rails.irbrc')
@@ -20,4 +23,4 @@ end
 #require 'ulog'
 #require 'meta'
 #require 'tracing'
-require 'console_uril'
+require 'console_util'
