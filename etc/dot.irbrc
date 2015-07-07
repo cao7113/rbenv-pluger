@@ -21,22 +21,24 @@ if defined? Hirb
     end
   end
 
-  class Hirb::Helpers::Mysql2Result
-    def self.render(output, options={})
-      rows = output.to_a
-      fields = output.fields
-      rows = rows.map do |r|
-        Hash[fields.zip(r)]
+  if defined?(Mysql2)
+    class Hirb::Helpers::Mysql2Result
+      def self.render(output, options={})
+        rows = output.to_a
+        fields = output.fields
+        rows = rows.map do |r|
+          Hash[fields.zip(r)]
+        end
+        output = rows
+        options = {}.merge(:class=>"Hirb::Helpers::AutoTable")
+
+        Hirb::View.load_config unless Hirb::View.config_loaded?
+        Hirb::View.render_output(output, options.merge(:console=>true, fields: fields))
       end
-      output = rows
-      options = {}.merge(:class=>"Hirb::Helpers::AutoTable")
-
-      Hirb::View.load_config unless Hirb::View.config_loaded?
-      Hirb::View.render_output(output, options.merge(:console=>true, fields: fields))
     end
-  end
 
-  Hirb.add_view Mysql2::Result, :class=>Hirb::Helpers::Mysql2Result
+    Hirb.add_view Mysql2::Result, :class=>Hirb::Helpers::Mysql2Result
+  end
 end
 
 if $0 == 'script/rails' && defined?(Rails) && Rails.env #in rails
