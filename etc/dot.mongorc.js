@@ -1,18 +1,8 @@
 /* Mongo shell ref: http://pt.slideshare.net/mongodb/hannes-shelltipsandtricks
  * embedded javascript interpreter, Spidermonkey/V8
  *
- * shortcuts:
- * Ctrl+A: move cursor to start of line
- * Ctrl+E: ....           end ...
+ * shortcuts: http://docs.mongodb.org/v2.6/reference/program/mongo/#mongo-keyboard-shortcuts
  * Ctrl+L: clear screen and redisplay line
- *
- * Tab completion
- * xxx.help()
- * show
- *  - profile
- *  - users
- *  - dbs
- *  - logs
  *
  * Loading scripts
  * * Commandline
@@ -43,8 +33,8 @@
  *
  */
 
-//prompt=function(){return "Hello World";}
-//.mongorc.js TODO: can be a directory?
+var host = db.serverStatus().host;
+var prompt = function() { return db+"@"+host+"> "; }
 
 // Common functions
 function generate_test_data(dbname, colname, num){
@@ -55,6 +45,7 @@ function generate_test_data(dbname, colname, num){
   print(col.count());
 }
 function init_trydb(){
+  //todo: check existed?
   generate_test_data("trydb", "notes", 200);
 }
 
