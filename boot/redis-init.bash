@@ -2,7 +2,7 @@
 set -e
 
 prefix=${PREFIX:-/opt/redis}
-[ $# -lt 1 -o "$1" = "-h" -o "$1" = "--help" ] &&{ 
+[ $# -lt 1 -o "$1" = "-h" -o "$1" = "--help" ] && { 
   echo "Usage: [FORCE=1] [PREFIX=/opt/redis] $0 version port, default port 6379, available versions:"
   ls -l $prefix
   exit 1
