@@ -37,6 +37,9 @@ Bundle 'scrooloose/nerdcommenter'
 "echo "Plugin 'rking/ag.vim'" >> ~/.vimrc && vim +BundleInstall
 Plugin 'rking/ag.vim'
 "let g:agprg="/usr/bin/ag --column"
+"Coffee script
+"Plugin 'kchmck/vim-coffee-script'
+Bundle 'kchmck/vim-coffee-script'
 
 " vim-scripts repos
 " need wmctrl on ubuntu by sudo apt-get install wmctrl
@@ -55,6 +58,7 @@ Bundle 'molokai'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
+syntax enable
 filetype plugin indent on     " required! 
 filetype plugin on     
 let mapleader=","
