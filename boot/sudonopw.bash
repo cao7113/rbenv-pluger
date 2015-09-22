@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# test on ubuntu
+
 #sudo $0
 set -e
 if [[ "$(id -un)" != "root" ]];then
