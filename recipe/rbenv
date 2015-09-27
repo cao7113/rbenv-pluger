@@ -65,6 +65,7 @@ plugins_root=$rbenv_root/plugins
   mkdir -p $rbenv_root/shims
   mkdir -p $rbenv_root/cache && echo Recommend to use cache for ruby-build install in $rbenv_root/cache
   mkdir -p $plugins_root
+
   pluger_root=$plugins_root/rbenv-pluger
   git clone $pluger_repo $pluger_root
   #set for default-gems
