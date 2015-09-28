@@ -15,5 +15,5 @@ sudo apt-get -y install libsqlite3-dev sqlite3 #for sqlite db basic use
 sudo apt-get -y install nodejs #for rails
 sudo apt-get -y install libffi-dev #for 2.2.0 ripper
 sudo apt-get -y install cmake #for rugged gem
-sudo apt-get -y install libmysqlclient-dev
+sudo apt-get -y install libmysqlclient-dev #mysql2
 touch ~/.ruby-built-essential

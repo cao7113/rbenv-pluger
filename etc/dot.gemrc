@@ -1,4 +1,4 @@
-#put ~/.gemrc or /etc/gemrc
+#put below lines into ~/.gemrc or /etc/gemrc
 ---
 :sources:
 #Note: only one of these options!
