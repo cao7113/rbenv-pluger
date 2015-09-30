@@ -3,7 +3,7 @@
 
 echo ====running before hook in $BASH_SOURCE
 sudo apt-get -y update #&& sudo apt-get -y upgrade #update source
-sudo apt-get -y install curl git subversion #fetch
+sudo apt-get -y install curl git #subversion #fetch
 sudo apt-get -y install build-essential autoconf libc6-dev automake libtool bison pkg-config #compiling
 sudo apt-get -y install zlib1g zlib1g-dev #unpack rubygems
 sudo apt-get -y install openssl libssl-dev libcurl4-openssl-dev #ruby's SSL

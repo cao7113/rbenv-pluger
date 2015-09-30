@@ -5,6 +5,8 @@ script_dir=$(dirname $BASH_SOURCE)/../../../boot #echo $BASH_SOURCE != $0 #this 
 if echo $osinfo|grep -iq ubuntu; then
   if [ ! -f ~/.ruby-built-essential ];then
     before_install "`cat $script_dir/ruby-build-essential`"
+  else
+    echo ==has install ruby-build-essential by flag file ~/.ruby-built-essential
   fi
 else
   if [ -z "$RUBY_BUILD_SKIP_ESSENTIAL" ];then

@@ -81,3 +81,45 @@ integreate in other environments(capistrano, chef):
 * https://github.com/RiotGames/rbenv-cookbook
 
 * http://www.rubyinside.com/rbenv-a-simple-new-ruby-version-management-tool-5302.html
+
+## ruby-build download mirror
+http://www.4wei.cn/archives/1002162
+https://ruby-china.org/topics/14564
+
+cd ~/.rbenv/versions
+wget http://ruby.taobao.org/mirrors/ruby/2.0/ruby-2.0.0-p451.tar.gz
+env RUBY_BUILD_MIRROR_URL=file:///root/.rbenv/versions/ruby-2.0.0-p451.tar.gz# rbenv install 2.0.0-p451
+
+深入研究
+
+#export RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/ 
+#https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.0.tar.gz
+# -->
+# default mirror: 2m 29s
+# https://dqw8nmjcqpjn7.cloudfront.net/:checksum:
+# https://dqw8nmjcqpjn7.cloudfront.net/7671e394abfb5d262fbcd3b27a71bf78737c7e9347fa21c39e58b0bb9c4840fc
+# But taobao # < 10s
+#http://ruby.taobao.org/mirrors/ruby/2.2/ruby-2.2.0.tar.gz
+#http://ruby.taobao.org/mirrors/ruby/ruby-2.2.0.tar.gz
+
+这里的镜像是指可根据checksum来获取下载包，不仅包括ruby安装包，还包括依赖包
+默认的是amzon s3上的 https://dqw8nmjcqpjn7.cloudfront.net/:checksum:
+下载速度还可以
+
+原来想的使用taobao的镜像，虽然国内下载速度特别快，但只支持ruby包，并没有这里提到的依赖包
+
+taobao镜像的左右有点类似官网的服务，虽然国内很慢
+
+为更好的使用国内taobao源，可考虑下面的方案
+
+方案1
+
+  使用默认mirror源，建议
+
+  ！！！注意不要设置这个环境变量 RUBY_BUILD_MIRROR_URL
+
+方案2 good
+  
+  fork to https://github.com/cao7113/ruby-build 优先使用taobao源
+
+  只需设置一个环境变量 RUBY_BUILD_TAOBAO_URL

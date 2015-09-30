@@ -1,0 +1,6 @@
+## Global Settings for rbenv-vars
+# this file will be link to ~/.rbenv-vars
+
+# ruby-build vars
+#export CONFIGURE_OPTS="--disable-install-doc" 
+export RUBY_BUILD_TAOBAO_URL=http://ruby.taobao.org/mirrors
