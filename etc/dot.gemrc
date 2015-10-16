@@ -2,7 +2,7 @@
 ---
 :sources:
 #Note: only one of these options!
-- http://ruby.taobao.org
+- https://ruby.taobao.org
 #- http://rubygems.org
 
 # Disable ri and rdoc on production environment
