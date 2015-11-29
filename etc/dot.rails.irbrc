@@ -43,28 +43,9 @@ def toggle_sql
     set_logger Logger.new(STDOUT) and return true
   end
 end
+
 def set_logger(logger)
   ActiveRecord::Base.logger = logger
   ActiveRecord::Base.clear_active_connections!
 end
 #set_logger nil # start with the normal logger
-
-
-##############################################
-#       Rails models
-
-#将model类加载到当前进程，在启动rails c后，默认的model类常量还没加载到当前进程，第一次调用时会加载
-#这里一次加载进来，以便后面的类反省操作
-#
-def require_models
-  Dir.glob("app/models/**/*.rb").each{|f| require File.basename(f)}
-end
-
-def models
-  require_models
-  ActiveRecord::Base.subclasses #depend on ush settings
-end
-
-def model_names
-  models.map &:name 
-end

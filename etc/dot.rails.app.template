@@ -1,4 +1,14 @@
 #ref: http://guides.rubyonrails.org/rails_application_templates.html 
-#
-add_source "https://ruby.taobao.org" #favor taobao upto rubygems
-gsub_file "Gemfile", /^\s*(source 'https:\/\/rubygems.org')/, '#\1'
+
+# use bellow instead manually, ref: https://ruby.taobao.org/index.html
+# bundle config mirror.https://rubygems.org https://ruby.taobao.org
+#add_source "https://ruby.taobao.org" #favor taobao upto rubygems
+#gsub_file "Gemfile", /^\s*(source 'https:\/\/rubygems.org')/, '#\1'
+
+gem_group :development, :test do
+  gem 'ffaker'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+generate 'rspec:install'
