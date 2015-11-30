@@ -4,7 +4,8 @@ if IRB.respond_to?(:conf)
   IRB.conf[:AUTO_IDENT] = true 
 end
 
-if $0 == 'script/rails' && defined?(Rails) && Rails.env #in rails
+# $0: script/rails
+if $0 == 'bin/rails' && defined?(Rails) #in rails
   railsrc = File.expand_path('~/.rails.irbrc')
   load railsrc if File.exists?(railsrc) 
 end

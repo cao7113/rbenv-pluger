@@ -49,3 +49,8 @@ def set_logger(logger)
   ActiveRecord::Base.clear_active_connections!
 end
 #set_logger nil # start with the normal logger
+
+if defined?(ActiveRecord)
+  Ar = ActiveRecord
+  ArBase = ActiveRecord::Base
+end
