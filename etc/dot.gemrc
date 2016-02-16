@@ -1,17 +1,11 @@
-#put below lines into ~/.gemrc or /etc/gemrc
 ---
+:backtrace: false
+:bulk_threshold: 1000
 :sources:
-#Note: only one of these options!
 - https://ruby.taobao.org
-#- http://rubygems.org
-
-# Disable ri and rdoc on production environment
-gem: --no-ri --no-rdoc
-install: --no-ri --no-rdoc
-update: --no-ri --no-rdoc
-
-:verbose: true
-#:benchmark: false
-#:backtrace: false
+- https://ruby.taobao.org/
 :update_sources: true
-#:bulk_threshold: 1000
+:verbose: true
+gem: "--no-ri --no-rdoc"
+install: "--no-ri --no-rdoc"
+update: "--no-ri --no-rdoc"

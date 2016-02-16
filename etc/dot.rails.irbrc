@@ -54,3 +54,8 @@ if defined?(ActiveRecord)
   Ar = ActiveRecord
   ArBase = ActiveRecord::Base
 end
+
+## todo
+if defined?(FactoryGirl)
+  Fg = FactoryGirl
+end
