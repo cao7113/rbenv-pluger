@@ -3,6 +3,7 @@ require 'irb/completion'
 if IRB.respond_to?(:conf)
   IRB.conf[:AUTO_IDENT] = true 
 end
+require 'byebug'
 
 # $0: script/rails
 if $0 == 'bin/rails' && defined?(Rails) #in rails
