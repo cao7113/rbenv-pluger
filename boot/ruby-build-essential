@@ -16,4 +16,6 @@ sudo apt-get -y install libmysqlclient-dev #mysql2
 sudo apt-get -y install nodejs #for rails
 #sudo apt-get -y install libffi-dev #for 2.2.0 ripper
 #sudo apt-get -y install cmake #for rugged gem
+
+# flag file to avoid reinstall
 touch ~/.ruby-built-essential

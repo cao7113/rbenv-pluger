@@ -4,4 +4,3 @@ rben_vars_enabled=1
 
 # ruby-build vars
 CONFIGURE_OPTS=--disable-install-doc
-#RUBY_BUILD_TAOBAO_URL=http://ruby.taobao.org/mirrors
