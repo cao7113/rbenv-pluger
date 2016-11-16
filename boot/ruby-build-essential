@@ -2,8 +2,8 @@
 #Note: Mainly designed for before hook for `rbenv install`, evaled by it!
 
 echo ====running before hook in $BASH_SOURCE
-sudo apt-get -y update #&& sudo apt-get -y upgrade #update source
-sudo apt-get -y install curl git #subversion #fetch
+sudo apt-get -y update 
+sudo apt-get -y install curl git
 sudo apt-get -y install build-essential autoconf libc6-dev automake libtool bison pkg-config #compiling
 sudo apt-get -y install zlib1g zlib1g-dev #unpack rubygems
 sudo apt-get -y install openssl libssl-dev libcurl4-openssl-dev #ruby's SSL
@@ -12,8 +12,8 @@ sudo apt-get -y install libreadline6 libreadline6-dev libncurses5-dev #irb
 sudo apt-get -y install libxml2-dev libxslt1-dev #parse XML via nokogiri 
 sudo apt-get -y install libpcre3 libpcre3-dev 
 sudo apt-get -y install libsqlite3-dev sqlite3 #for sqlite db basic use
-sudo apt-get -y install nodejs #for rails
-sudo apt-get -y install libffi-dev #for 2.2.0 ripper
-sudo apt-get -y install cmake #for rugged gem
 sudo apt-get -y install libmysqlclient-dev #mysql2
+sudo apt-get -y install nodejs #for rails
+#sudo apt-get -y install libffi-dev #for 2.2.0 ripper
+#sudo apt-get -y install cmake #for rugged gem
 touch ~/.ruby-built-essential
