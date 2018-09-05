@@ -1,4 +1,4 @@
-#Rbenv-pluger: a rbenv-plugin manager and booter
+# Rbenv-pluger: a rbenv-plugin manager and booter
 
 * manage rbenv plugins like rbenv manage rubies.
 * but not a normal plugin, it manage all my ruby life(from install to maintain) 
@@ -83,15 +83,19 @@ integreate in other environments(capistrano, chef):
 * http://www.rubyinside.com/rbenv-a-simple-new-ruby-version-management-tool-5302.html
 
 ## ruby-build download mirror
+
 http://www.4wei.cn/archives/1002162
 https://ruby-china.org/topics/14564
 
+```
 cd ~/.rbenv/versions
 wget http://ruby.taobao.org/mirrors/ruby/2.0/ruby-2.0.0-p451.tar.gz
 env RUBY_BUILD_MIRROR_URL=file:///root/.rbenv/versions/ruby-2.0.0-p451.tar.gz# rbenv install 2.0.0-p451
+```
 
 深入研究
 
+```
 #export RUBY_BUILD_MIRROR_URL=http://ruby.taobao.org/mirrors/ruby/ 
 #https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.0.tar.gz
 # -->
@@ -101,6 +105,7 @@ env RUBY_BUILD_MIRROR_URL=file:///root/.rbenv/versions/ruby-2.0.0-p451.tar.gz# r
 # But taobao # < 10s
 #http://ruby.taobao.org/mirrors/ruby/2.2/ruby-2.2.0.tar.gz
 #http://ruby.taobao.org/mirrors/ruby/ruby-2.2.0.tar.gz
+```
 
 这里的镜像是指可根据checksum来获取下载包，不仅包括ruby安装包，还包括依赖包
 默认的是amzon s3上的 https://dqw8nmjcqpjn7.cloudfront.net/:checksum:

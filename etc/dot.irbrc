@@ -1,22 +1,14 @@
 ##put this in ~/.irbrc, autoload by irb
+puts '====in irb console'
 require 'irb/completion'
 if IRB.respond_to?(:conf)
   IRB.conf[:AUTO_IDENT] = true 
 end
 
-if defined?(FFaker)
-  Ff = FFaker
-end
+require 'uby_console_tools' rescue nil
 
-if defined?(FactoryGirl)
-  Fg = FactoryGirl
-end
-
-if defined?(ActiveRecord)
-  Ar ||= ActiveRecord 
-  ArBase ||= Ar::Base
-  MigTable ||= Ar::SchemaMigration
-end
+require "awesome_print"
+AwesomePrint.irb!
 
 ## $0: script/rails
 #if $0 == 'bin/rails' && defined?(Rails) #in rails
